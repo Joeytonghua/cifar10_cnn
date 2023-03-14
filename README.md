@@ -4,4 +4,4 @@
 ![img.png](src/img.png)
 
 ### v2.0: lr = 0.01, epoch= 50, acc =77%
-使测试数据集结果可视化。![img.png](src/img1.png)
+使测试数据集结果可视化。![img.png](src/img001.png)
