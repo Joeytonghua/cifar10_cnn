@@ -12,6 +12,7 @@ transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.Resize(image_size),
     transforms.CenterCrop(image_size),
+    # transforms.Grayscale(num_output_channels=3),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
 ])
@@ -46,7 +47,7 @@ loss_function = nn.CrossEntropyLoss()
 loss_function.to(device)
 
 # 优化器 这里采用随机梯度下降
-learning_rate = 3e-2
+learning_rate = 1e-2
 optimizer = torch.optim.SGD(params=joe.parameters(), lr=learning_rate)
 
 # 设置训练网络的一些参数
@@ -55,7 +56,7 @@ total_train_step = 0
 # 记录测试的次数
 total_test_step = 0
 # 训练的轮s数
-epoch = 10
+epoch = 50
 
 # tensorboard
 writter = SummaryWriter("logs_model_1")
@@ -78,7 +79,7 @@ for i in range(epoch):
         optimizer.step()
 
         total_train_step = total_train_step + 1
-        if total_train_step % 100 == 0:
+        if total_train_step % 300 == 0:
             print("训练次数:{}, Loss:{}".format(total_train_step, loss.item()))
             writter.add_scalar("train_loss", loss.item(), total_train_step)
 
@@ -106,7 +107,7 @@ for i in range(epoch):
     total_test_step += 1
 
     # 模型保存
-    torch.save(joe, "model_save/model_gpu{}.pth".format(i + 1))
+    torch.save(joe, "../model_save/model_gpu{}.pth".format(i + 1))
     print("模型已经保存！")
 
 e_time = time.time()
