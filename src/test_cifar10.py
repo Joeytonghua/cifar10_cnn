@@ -49,7 +49,7 @@ def prediect(img_path):
     # print(img.shape) #torch.Size([1, 3, 32, 32])
 
     #读取模型
-    net = torch.load("../model_save/model_gpu50.pth")
+    net = torch.load("../model_save/model_gpu60.pth")
     net.eval()
     with torch.no_grad():
         outputs = net(img).to('mps')
