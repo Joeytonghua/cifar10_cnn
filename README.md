@@ -1,7 +1,7 @@
 # cifar10_cnn（持续更新）
 ## v1.0: lr = 0.01, epoch= 50, acc =77%
 ### 使用了最基础的cnn，在小土堆的基础上对每次卷积之后添加一个Relu()激活函数。并且对数据进行了预处理。
-![img.png](src/readme_pics/img.png)
+
 
 ## v2.0: lr = 0.01, epoch= 50, acc =77%
 ### 使测试数据集结果可视化。
@@ -9,7 +9,7 @@
 
 ## v2.1 
 ### 1.优化model模型,acc = 83%
-#### 对输入数据集进行预处理
+#### 对输入数据集进行预处理，更新一些方法和参数。
     train_transform = transforms.Compose([
     transforms.RandomCrop(32, padding=4),
     transforms.RandomHorizontalFlip(),
@@ -24,5 +24,5 @@
 
 ### 2.复现使用vgg13模型，acc = 90.72%
 m1pro训练起来实在是费劲，所以只运行了60个epoch.
-![img.png](src/readme_pics/2-1.png)
+![img.png](src/readme_pics/v2-1.png)
 
